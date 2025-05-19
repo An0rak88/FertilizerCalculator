@@ -27,7 +27,7 @@ st.title("Hydroponic Fertilizer Optimizer")
 
 # Manual refresh button
 if st.button("🔄 Refresh Google Sheets Data"):
-    st.experimental_rerun()
+    st.rerun()
 
 # Add CSS for table styling
 st.markdown(
