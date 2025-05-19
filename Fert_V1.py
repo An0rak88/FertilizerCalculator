@@ -25,6 +25,10 @@ def render_df(df: pd.DataFrame) -> str:
 st.set_page_config(page_title="Fertilizer Optimizer", layout="wide")
 st.title("Hydroponic Fertilizer Optimizer")
 
+# Manual refresh button
+if st.button("🔄 Refresh Google Sheets Data"):
+    st.experimental_rerun()
+
 # Add CSS for table styling
 st.markdown(
     """

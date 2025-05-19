@@ -25,6 +25,10 @@ def render_df(df: pd.DataFrame) -> str:
 st.set_page_config(page_title="Fertilizer Optimizer", layout="wide")
 st.title("Hydroponic Fertilizer Optimizer")
 
+# Manual refresh button
+if st.button("🔄 Refresh Google Sheets Data"):
+    st.experimental_rerun()
+
 # Add CSS for table styling
 st.markdown(
     """
@@ -275,4 +279,4 @@ with tabs[1]:
 
         st.subheader(f"Pond {p}")
         steps_df = pd.DataFrame(table_data)
-        st.markdown(render_df(steps_df), unsafe_allow_html=True)
+        st.markdown(render_df(steps_df), unsafe_allow_html=True) 
