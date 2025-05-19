@@ -7,6 +7,7 @@ import streamlit as st
 def render_df(df: pd.DataFrame) -> str:
     macro_cols = ["K", "N", "Ca", "S", "P", "Mg", "Na"]
     micro_cols = ["Fe", "Mn", "B", "Cu", "Zn", "Mo"]
+    pond_cols = ["Pond 1", "Pond 2", "Pond 3", "Pond 4", "Pond 5", "Pond 6", "Pond 7"]
 
     df_fmt = df.copy()
 
@@ -17,6 +18,8 @@ def render_df(df: pd.DataFrame) -> str:
             df_fmt[col] = df_fmt[col].map(lambda x: f"{x:,.0f}" if pd.notna(x) else "")
         elif col in micro_cols:
             df_fmt[col] = df_fmt[col].map(lambda x: f"{x:,.2f}" if pd.notna(x) else "")
+        elif col in pond_cols:
+            df_fmt[col] = df_fmt[col].map(lambda x: f"{x:,.0f}" if pd.notna(x) else "")
         else:
             df_fmt[col] = df_fmt[col].map(lambda x: f"{x:,.2f}" if pd.notna(x) else "")
 
@@ -34,7 +37,7 @@ st.markdown(
     """
     <style>
       .streamlit-table {
-        width: 100% !important;
+        width: 60% !important;
         border-collapse: collapse;
       }
       .streamlit-table th, .streamlit-table td {
